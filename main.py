@@ -1,11 +1,15 @@
 import sys
-from stats import get_num_words, count_characters, sort_characters
+from pathlib import Path
+
+from stats import count_characters, get_num_words, sort_characters
+
 
 def get_book_text(filepath: str) -> str:
-    with open(filepath, 'r', encoding = 'utf-8') as file:
+    with Path(filepath).open("r", encoding="utf-8") as file:
         return file.read()
 
-def main():
+
+def main() -> None:
     if len(sys.argv) != 2:
         print("Usage: python3 main.py <path_to_book>")
         sys.exit(1)
@@ -27,5 +31,7 @@ def main():
         print(f"{item['char']}: {item['num']}")
 
     print("============= END ===============")
+
+
 if __name__ == "__main__":
     main()
