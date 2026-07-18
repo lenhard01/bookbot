@@ -5,6 +5,8 @@
 
 # python
 .python-version
+__pycache__/
+.pyc
 
 # ruff
 .ruff-cache
