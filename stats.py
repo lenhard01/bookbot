@@ -16,10 +16,13 @@ def count_characters(text: str) -> dict[str, int]:
     return char_counts
 
 
-def sort_characters(char_dict: dict[str, int]) -> list[dict[str, str | int]]:
-    char_list = [
-        {"char": char, "num": count} for char, count in char_dict.items() if char.isalpha()
-    ]
-    char_list.sort(key=lambda x: x["num"], reverse=True)
+def sort_on(char_count_tuple: tuple[str, int]) -> int:
+    return char_count_tuple[1]
 
-    return char_list
+
+def chars_dict_to_sorted_list(num_chars_dict: dict[str, int]) -> list[tuple[str, int]]:
+    chars_list: list[tuple[str, int]] = []
+    for char in num_chars_dict:
+        count = num_chars_dict[char]
+        chars_list.append((char, count))
+    return sorted(chars_list, reverse=True, key=sort_on)
