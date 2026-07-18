@@ -1,1 +1,14 @@
 /books
+
+# Virtual environments
+.venv
+
+# python
+.python-version
+
+# ruff
+.ruff-cache
+
+pyproject.toml
+uv.lock
+
